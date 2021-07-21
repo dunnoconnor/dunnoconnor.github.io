@@ -6,11 +6,14 @@ class Character {
       let str = 0, dex = 0, con = 0, int = 0, wis = 0, cha = 0;
       let type= "";
       let coin = 0;
+      let hp = 0;
+      let dmg = "";
       let gearlist = [];
       let name = "";
       //methods to set actual values
       this.rollStats();
       this.setClass();
+      this.rollHP();
       this.rollCoin();
       this.rollName();
     }
@@ -56,7 +59,7 @@ class Character {
         this.cha = this.rollAStat();
       }
     }
-    //sets the character class based on stat
+    //sets the character class based on stats
     setClass() {
       let str = this.str;
       let dex = this.dex;
@@ -64,17 +67,43 @@ class Character {
       let int = this.int;
       if (str>=dex && str>=int && str>=wis){
         this.type = "Warrior";
+        this.dmg = "1d8";
         //warriorGear();
       } else if (dex>=int && dex>=wis){
         this.type = "Thief";
+        this.dmg = "1d6";
         //thiefGear();
       } else if (wis>int){
         this.type = "Cleric";
+        this.dmg = "1d6";
         //clericGear();
       } else {
         this.type = "Conjurer";
+        this.dmg = "1d4";
         //conjurerGear();
       }
+    }
+    //roll a random HP
+    rollHP() {
+      let hpDie, hpMod;
+      switch(this.type){
+        case "Warrior":
+          hpDie = 10;
+          hpMod = 4;
+        case "Thief":
+          hpDie = 6;
+          hpMod = 4;
+        case "Cleric":
+          hpDie = 8;
+          hpMod = 4;
+        case "Conjurer":
+          hpDie = 4;
+          hpMod = 4;
+      }
+      //console.log(this.type,hpDie,hpMod);
+      let hpRoll = Math.ceil((Math.random()*hpDie));
+      this.hp = (hpRoll+hpMod)
+      
     }
     //rolls a random amount of starting coin
     rollCoin() {
@@ -96,6 +125,7 @@ class Character {
   function createCharacter() {
     const hero1 = new Character();
     console.log(hero1);
+    //updates the webpage with character info
     document.getElementById("strength").innerHTML =  ("STR: "+ hero1.str);
     document.getElementById("dexterity").innerHTML =  ("DEX: "+ hero1.dex);
     document.getElementById("constitution").innerHTML =  ("CON: "+ hero1.con);
@@ -105,15 +135,21 @@ class Character {
     document.getElementById("name").innerHTML =  (hero1.name);
     document.getElementById("class").innerHTML =  (hero1.type);
     document.getElementById("coin").innerHTML =  ("Coin: " + hero1.coin);
+    document.getElementById("hp").innerHTML =  ("HP: " + hero1.hp);
+    document.getElementById("dmg").innerHTML =  ("Damage Die: " + hero1.dmg);
   }
   
   
   
   function thiefGear() {
-    if (coin>50){
-      gearlist += "gambeson";
-      coin-=50;
-    }
+      let cost = 0;
+      let loadoutDie = Math.ceil((Math.random()*6));
+      switch(loadoutDie){
+        case 1:
+          console.log("ok")
+
+      }
+
     
   }
   
