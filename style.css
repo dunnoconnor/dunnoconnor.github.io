@@ -5,12 +5,17 @@ body{
 
 h1{
    font-size: 5vw;
-   font-family: 'IM Fell English SC', serif;
    text-align: center;
    vertical-align: middle;
    color: #262626;
-   margin: 25px 50px;
 }
+h2 {
+   font-size: 4vw;
+}
+h3 {
+   font-size: 3vw;
+}
+
 
 img {
    width: 50%;
