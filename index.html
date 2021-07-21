@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Black Hack Character Spawner</title>
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script type="text/javascript" src="script.js"></script>
+      
+        <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+      
+    </head>
+
+    <body ontouchstart="createCharacter()">
+      <h1 id="main-title">Black Hack Character Generator</h1>
+      
+      <div class="row">
+      <div class="col s12 m6 l4">
+      <div class="card white">
+        <div class="card-content black-text">
+          <h2 id="name"></h2>
+          <h2 id="class"></h2>
+          <a class="waves-effect waves-light deep-orange darken-2 btn" onclick="createCharacter()">Roll A Character</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l4">
+      <div class="card white">
+        <div class="card-content black-text">
+            <h3 id="coin"></h3>
+        </div>
+      </div>
+    </div>
+      </div>
+
+
+      
+      <div class="row">
+        
+    <div class="col s12 m6 l4">
+      <div class="card white">
+        <div class="card-content black-text">
+            <h3 id="strength"></h3>
+            <h3 id="dexterity"></h3>
+            <h3 id="constitution"></h3>
+            <h3 id="intelligence"></h3>
+            <h3 id="wisdom"></h3>
+            <h3 id="charisma"></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l4">
+      <div class="card white">
+        <div class="card-content black-text">
+          <h3>Equipment:</h3>
+            <ul id="list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+    </body>
+</html>
