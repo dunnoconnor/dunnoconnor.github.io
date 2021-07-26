@@ -261,13 +261,9 @@ class Character {
 
   
   function createCharacter() {
-    const hero1 = new Character();
-    console.log(hero1);
-    updatePage(hero1);
-  }
+    const hero = new Character();
+    console.log(hero);
 
-  function updatePage(hero) {
-    //updates the webpage with character info
     document.getElementById("strength").innerHTML =  ("STR: "+ hero.str);
     document.getElementById("dexterity").innerHTML =  ("DEX: "+ hero.dex);
     document.getElementById("constitution").innerHTML =  ("CON: "+ hero.con);
