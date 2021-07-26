@@ -15,9 +15,9 @@ class Character {
       let name = "";
       //methods to set actual values
       this.rollStats();
+      this.rollCoin();
       this.setClass();
       this.rollHP();
-      this.rollCoin();
       this.rollName();
     }
     //rolls 3d6 for each stat, modified if the previous stat is >= 15
