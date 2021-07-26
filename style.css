@@ -4,22 +4,20 @@ body{
 }
 
 h1{
-   font-size: 5vw;
    text-align: center;
    vertical-align: middle;
    color: #262626;
 }
-h2 {
-   font-size: 4vw;
-}
-h3 {
-   font-size: 3vw;
-}
 
 
 img {
-   width: 50%;
+   width: 20%;
    display: block;
    margin-left: auto;
    margin-right: auto;
 }
+
+li{
+   font-size: x-large;
+}
+

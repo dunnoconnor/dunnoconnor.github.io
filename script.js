@@ -1,3 +1,5 @@
+
+
 //class template for character object
 class Character {
     //constructor for character properties
@@ -8,7 +10,8 @@ class Character {
       let coin = 0;
       let hp = 0;
       let dmg = "";
-      let gearlist = [];
+      let equipment = [];
+      let spellList = [];
       let name = "";
       //methods to set actual values
       this.rollStats();
@@ -68,19 +71,21 @@ class Character {
       if (str>=dex && str>=int && str>=wis){
         this.type = "Warrior";
         this.dmg = "1d8";
-        //warriorGear();
+        this.warriorGear();
       } else if (dex>=int && dex>=wis){
         this.type = "Thief";
         this.dmg = "1d6";
-        //thiefGear();
+        this.thiefGear();
       } else if (wis>int){
         this.type = "Cleric";
         this.dmg = "1d6";
-        //clericGear();
+        this.clericGear();
+        this.clericSpells();
       } else {
         this.type = "Conjurer";
         this.dmg = "1d4";
-        //conjurerGear();
+        this.conjurerGear();
+        this.conjurerSpells();
       }
     }
     //roll a random HP
@@ -119,49 +124,189 @@ class Character {
       let nameRoll = Math.floor((Math.random()*names.length));
       this.name = names[nameRoll];
     }
-  
+
+    thiefGear() {
+      let gear = ["Knife","Rations d4", "Small Sack","Torches d6","Thieves' Tools"];
+      let cost = 42;
+      let extraEquipment = [];
+      let loadoutDie = Math.ceil((Math.random()*3));
+      switch(loadoutDie){
+        case 1:
+          extraEquipment = ["Rope","Iron Spikes", "Work Tools"];
+          cost += 5;
+        case 2:
+          extraEquipment = ["Bow", "Quiver d10", "Flint and Steel"];
+          cost += 25;
+        case 3:
+          extraEquipment = ["Gambeson"];
+          cost += 50;
+      }
+      for (let item in extraEquipment){
+        gear.push(extraEquipment[item]);
+      }
+      if (cost>=this.coin){
+        this.coin = 0;
+      } else {
+        this.coin -= cost;
+      }
+      this.equipment = gear;
   }
+
+    warriorGear() {
+    let gear = ["Sword","Rations d4", "Small Sack","Torches d6"];
+    let cost = 17;
+    let extraEquipment = [];
+    let loadoutDie = Math.ceil((Math.random()*3));
+    switch(loadoutDie){
+      case 1:
+        extraEquipment = ["Gambeson","Rope","Iron Spikes", "Work Tools"];
+        cost += 55;
+      case 2:
+        extraEquipment = ["Gambeson","Bow", "Quiver d10", "Flint and Steel"];
+        cost += 75;
+      case 3:
+        extraEquipment = ["Leather Armor"];
+        cost += 100;
+    }
+    for (let item in extraEquipment){
+      gear.push(extraEquipment[item]);
+    }
+    if (cost>=this.coin){
+      this.coin = 0;
+    } else {
+      this.coin -= cost;
+    }
+    this.equipment = gear;
+  }
+
+    clericGear() {
+      let gear = ["Mace","Holy Symbol","Rations d4", "Small Sack","Torches d6"];
+      let cost = 42;
+      let extraEquipment = [];
+      let loadoutDie = Math.ceil((Math.random()*3));
+      switch(loadoutDie){
+        case 1:
+          extraEquipment = ["Gambeson"];
+          cost += 50;
+        case 2:
+          extraEquipment = ["Backpack", "Lantern", "Flask of Oil d6","Herbs d8"];
+          cost += 24;
+        case 3:
+          extraEquipment = ["Holy Water","Handheld Mirror","Iron Spikes"];
+          cost += 31;
+      }
+      for (let item in extraEquipment){
+        gear.push(extraEquipment[item]);
+      }
+      if (cost>=this.coin){
+        this.coin = 0;
+      } else {
+        this.coin -= cost;
+      }
+      this.equipment = gear;
+  }
+  
+    conjurerGear() {
+    let gear = ["Staff","Spellbook","Rations d4", "Small Sack","Torches d6"];
+    let cost = 17;
+    let extraEquipment = [];
+    let loadoutDie = Math.ceil((Math.random()*3));
+    switch(loadoutDie){
+      case 1:
+        extraEquipment = ["Vial of poison"];
+        cost += 10;
+      case 2:
+        extraEquipment = ["Backpack", "Lantern", "Flask of Oil d6","Herbs d8"];
+        cost += 24;
+      case 3:
+        extraEquipment = ["Holy Water","Handheld Mirror","Iron Spikes"];
+        cost += 31;
+    }
+    for (let item in extraEquipment){
+      gear.push(extraEquipment[item]);
+    }
+    if (cost>=this.coin){
+      this.coin = 0;
+    } else {
+      this.coin -= cost;
+    }
+    this.equipment = gear;
+  }
+
+    clericSpells() {
+    let spellDie = Math.ceil((Math.random()*4));
+    let spells = ["Cure Light Wounds","Detect Evil","Light","Protection from Evil","Purify Food and Drink"];
+    let knownSpells = [];
+    for(let i=0;i<spellDie;i++){
+      let listDie = Math.floor((Math.random()*spells.length));
+      let thisSpell = spells.splice(listDie, 1);
+      knownSpells.push(thisSpell[0]);
+    }
+    this.spellList = knownSpells;
+  }
+
+  conjurerSpells() {
+  let spellDie = 2+Math.ceil((Math.random()*4));
+  let spells = ["Charm", "Detect Magic","Light","Magic Missle","Shield","Sleep"];
+  let knownSpells = [];
+  for(let i=0;i<spellDie;i++){
+    let listDie = Math.floor((Math.random()*spells.length));
+    let thisSpell = spells.splice(listDie, 1);
+    knownSpells.push(thisSpell[0]);
+  }
+  this.spellList = knownSpells;
+  }
+
+}
+
   
   function createCharacter() {
     const hero1 = new Character();
     console.log(hero1);
+    updatePage(hero1);
+  }
+
+  function updatePage(hero) {
     //updates the webpage with character info
-    document.getElementById("strength").innerHTML =  ("STR: "+ hero1.str);
-    document.getElementById("dexterity").innerHTML =  ("DEX: "+ hero1.dex);
-    document.getElementById("constitution").innerHTML =  ("CON: "+ hero1.con);
-    document.getElementById("intelligence").innerHTML =  ("INT: "+ hero1.int);
-    document.getElementById("wisdom").innerHTML =  ("WIS: "+ hero1.wis);
-    document.getElementById("charisma").innerHTML =  ("CHA: "+ hero1.cha);
-    document.getElementById("name").innerHTML =  (hero1.name);
-    document.getElementById("class").innerHTML =  (hero1.type);
-    document.getElementById("coin").innerHTML =  ("Coin: " + hero1.coin);
-    document.getElementById("hp").innerHTML =  ("HP: " + hero1.hp);
-    document.getElementById("dmg").innerHTML =  ("Damage Die: " + hero1.dmg);
-  }
-  
-  
-  
-  function thiefGear() {
-      let cost = 0;
-      let loadoutDie = Math.ceil((Math.random()*6));
-      switch(loadoutDie){
-        case 1:
-          console.log("ok")
+    document.getElementById("strength").innerHTML =  ("STR: "+ hero.str);
+    document.getElementById("dexterity").innerHTML =  ("DEX: "+ hero.dex);
+    document.getElementById("constitution").innerHTML =  ("CON: "+ hero.con);
+    document.getElementById("intelligence").innerHTML =  ("INT: "+ hero.int);
+    document.getElementById("wisdom").innerHTML =  ("WIS: "+ hero.wis);
+    document.getElementById("charisma").innerHTML =  ("CHA: "+ hero.cha);
+    document.getElementById("name").innerHTML =  (hero.name);
+    document.getElementById("class").innerHTML =  (hero.type);
+    document.getElementById("coin").innerHTML =  ("Coin: " + hero.coin);
+    document.getElementById("hp").innerHTML =  ("HP: " + hero.hp);
+    document.getElementById("dmg").innerHTML =  ("Damage Die: " + hero.dmg);
+    console.log(hero.type);
+    document.getElementById("class-image").src = (`images/${hero.type.toLowerCase()}_class_icon.jpeg`);
+    
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+    for (let item in hero.equipment){
+      let listItem = document.createElement('li');
+      list.appendChild(listItem);
+      listItem.innerText = hero.equipment[item];
+    }
 
+    let sList = document.getElementById("spell-list");
+    sList.innerHTML = "";
+    for (let item in hero.spellList){
+        let listItem = document.createElement('li');
+        sList.appendChild(listItem);
+        listItem.innerText = hero.spellList[item];
+        console.log(hero.spellList);
       }
+  }
 
-    
+document.querySelector('#create').addEventListener("click", function(event) {
+    event.preventDefault();
+    createCharacter();
+  });
+
+  document.querySelector('#print').addEventListener('click', function(event){
+    window.print();
   }
-  
-  function conjurerGear() {
-    
-  }
-  
-  function clericGear() {
-    
-  }
-  
-  function warriorGear() {
-    
-  }
-  
+);
+
