@@ -276,7 +276,7 @@ class Character {
     document.getElementById("hp").innerHTML =  ("HP: " + hero.hp);
     document.getElementById("dmg").innerHTML =  ("Damage Die: " + hero.dmg);
     console.log(hero.type);
-    document.getElementById("class-image").src = (`images/${hero.type.toLowerCase()}_class_icon.jpeg`);
+    document.getElementById("class-image").src = (`./images/${hero.type.toLowerCase()}_class_icon.jpeg`);
     
     let list = document.getElementById("list");
     list.innerHTML = "";

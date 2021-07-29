@@ -1,83 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Black Hack Character Generator</title>
-      
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <link rel="stylesheet" media="print" href="print.css">
-      
-        <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
-        <link rel="icon" type="image/png" href="/icon.jpeg"/>
-      
-    </head>
-
-    <body>
-
-      <h1 id="main-title">Black Hack Character Generator</h1>
-      <div class="row center">
-      <a class="waves-effect waves-light deep-orange darken-2 btn create" id="create">Roll A Character</a>
-      <a class="waves-effect waves-light deep-orange darken-2 btn" id="print">Print Character</a>
-      </div>
-
-      <div class="row">
-      <div class="col s12 m6 l4">
-      <div class="card white medium">
-        <div class="card-content black-text">
-          <h2 id="name"></h2>
-          <h2 id="class"></h2>
-          <img id="class-image"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDOC Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <h1>Michael Dunn-O'Connor's Portfolio</h1>
+    <div id="portfolio">
+        <div class="portfolio-entry">
+            <a href="./area_model_farm/menu.html"><h2>Area Model Farm</h2></a>
+            <p>Area Model Farm is a math game that visualizes the area model of multiplication through an interactive game.</p>
         </div>
-      </div>
-    </div>
-
-    <div class="col s12 m6 l4">
-      <div class="card white medium">
-        <div class="card-content black-text">
-            <h3 id="hp"></h3>
-            <h3 id="dmg"></h3>
-            <h3 id="coin"></h3>
+        <div class="portfolio-entry">
+            <a href="./blackhack/blackhack.html"><h2>Black Hack Character Generator</h2></a>
+            <p>The Black Hack Character Generator is a randomized character creation tool for a tabletop RPG.</p>
         </div>
-      </div>
-    </div>
-        
-    <div class="col s12 m6 l4">
-      <div class="card white medium">
-        <div class="card-content black-text">
-            <h4 id="strength"></h4>
-            <h4 id="dexterity"></h4>
-            <h4 id="constitution"></h4>
-            <h4 id="intelligence"></h4>
-            <h4 id="wisdom"></h4>
-            <h4 id="charisma"></h4>
-        </div>
-      </div>
-    </div>
 
-    <div class="col s12 m6 l4">
-      <div class="card white medium">
-        <div class="card-content black-text">
-          <h3>Equipment:</h3>
-            <ul id="list">
-              
-            </ul>
-        </div>
-      </div>
     </div>
-
-    <div class="col s12 m6 l4">
-      <div class="card white medium">
-        <div class="card-content black-text">
-          <h3 id="spell-card">Spells:</h3>
-            <ul id="spell-list"></ul>
-        </div>
-      </div>
-    </div>
-
-      </div>
-
-    <script type="text/javascript" src="script.js"></script>
-    </body>
+</body>
 </html>
