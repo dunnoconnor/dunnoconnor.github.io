@@ -32,7 +32,7 @@ h1{
     padding: 10px;
     width: 20vw;
     transition: width 0.1s, height 0.1s, box-shadow 0.1s;
-    height: 30vw;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -43,7 +43,7 @@ h1{
 .portfolio-entry:hover {
     box-shadow: 4px 3px;
     width: 21vw;
-    height: 31vh;    
+    height: 31vh;
 }
 
 a {
