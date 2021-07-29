@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Garden</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/plant.jpeg"/>
 
 </head>
 <body>
@@ -22,23 +23,22 @@
                 <div class="row">
                     <div id="corner"></div>
                     <div id="column-ruler">
-                        <h3 class="hidden" id="column-ruler-label">| - Columns - |</h3>
+                        <h2 class="hidden" id="column-ruler-label">| - Columns - |</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div id="row-ruler">
-                        <h3 class="hidden" id="row-ruler-label">| - Rows - |</h3>
+                        <h2 class="hidden" id="row-ruler-label">| - Rows - |</h2>
                     </div>
                     <div class="garden"></div>
                 </div>
 
             </div>
             
-
             <div id="numbers-menu">
                 
-                <h2 class="hidden" id="row-display"></h2>
-                <h2 class="hidden" id="column-display"></h2>
+                <h2><span class="hidden" id="row-display"></span><br><span class="hidden" id="column-display"></span></h2>
+                
                 <h2 id="instructions">Click Start to Build your Garden</h2>
                 
                 <button class="button" id="start-button">Start</button>
@@ -58,6 +58,7 @@
                     <button class="button" id="submit-button">Submit</button>
                 </div>
 
+                <h2 id="level-board">Level: <span id="level-display">0</span>/10</h2>
                 <h2 id="points-board">Points: <span id="points-display">0</span></h2>
                 <h2 id="high-score-board">High Score: <span id="high-score-display">0</span></h2>
                 

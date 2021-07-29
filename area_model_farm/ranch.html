@@ -4,32 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Ranch</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/cow.jpeg"/>
 
 </head>
 <body>
-    <div class="game-window">
-        <div class="canvas">
-
+    <div class="garden-page">
+        <div id="header">
+            <h1 id="garden-title">Welcome to the Ranch!</h1>
         </div>
 
-        <div class="numbers-menu">
-            <!-- <input type="text" name="num1-input" value="" placeholder="Enter a number"  id="num1-input">
-            <input type="text" name="num2-input" value="" placeholder="Enter a number"  id="num2-input"> -->
-            <button class="button" id="generate-button">Generate Problem</button>
+        <div id="game-window">
 
-            <h2 id="equation"><span id="num1-display">__</span> * <span id="num2-display">__</span></h2>
+            <div class=canvas>
+                <div class="row">
+                    <div id="corner"></div>
+                    <div id="column-labels">
+                        <h2 id="column-tens-label"></h2>
+                        <h2 id="column-ones-label"></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="row-labels">
+                        <h2 id="row-tens-label"></h2>
+                        <h2 id="row-ones-label"></h2>
+                    </div>
+                    <div class="garden">
+                        <div id="ranch-row-1" class="row"></div>
+                        <div id="ranch-row-2" class="row"></div>
+                    </div>
+                </div>
 
-            <input type="text" name="num2-input" value="" placeholder="Enter the area"  id="area-input">
-            <button class="button hidden" id="submit-button">Submit</button>
+            </div>
+            
 
-            <h2 id="points-board">Points: <span id="points-display">0</span></h2>
-            <h2 id="high-score-board">High Score: <span id="high-score-display">0</span></h2>
+            <div id="numbers-menu">
+                
+                <h2 class="hidden" id="row-display"></h2>
+                <h2 class="hidden" id="column-display"></h2>
+                <h2 id="instructions">Click Start to Build your Ranch</h2>
+                
+                <button class="button" id="start-button">Start</button>
 
+                <div id="a-dev" class="row">
+                <input class="input" type="text" name="a-input" value="" placeholder="Area of A"  id="a-input">
+                <button class="check-button" id="a">&#10003</button>
+                </div>
+
+                <div id="b-div" class="row">
+                    <input class="input" type="text" name="b-input" value="" placeholder="Area of B"  id="b-input">
+                    <button class="check-button" id="b">&#10003</button>
+                </div>
+
+                <div id="c-div" class="row">
+                    <input class="input" type="text" name="c-input" value="" placeholder="Area of C"  id="c-input">
+                    <button class="check-button" id="c">&#10003</button>
+                </div>
+
+                <div id="d-div" class="row">
+                    <input class="input" type="text" name="d-input" value="" placeholder="Area of D"  id="d-input">
+                    <button class="check-button" id="d">&#10003</button>
+                </div>
+
+                <div id="area" class="row hidden">
+                    <input class="input" type="text" name="num2-input" value="" placeholder="Enter area"  id="area-input">
+                    <button class="button" id="submit">Submit</button>
+                </div>
+
+                <h2 id="level-board">Level: <span id="level-display">0</span>/10</h2>
+                <h2 id="points-board">Points: <span id="points-display">0</span></h2>
+                <h2 id="high-score-board">High Score: <span id="high-score-display">0</span></h2>
+                
+                <a id="main-menu-link" href="./menu.html"><button class="menu-button" id="main-menu-button">Main Menu</button></a>
+
+            </div>
         </div>
+
+        <div id="footer">
+            <p id="credits">2021, Michael Dunn-O'Connor</p>
+        </div>
+
     </div>
-    <script src="script.js"></script>
+    <script src="ranch.js"></script>
 </body>
 </html>

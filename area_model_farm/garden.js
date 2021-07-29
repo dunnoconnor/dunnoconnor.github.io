@@ -23,6 +23,7 @@ const rowsButton = document.querySelector("#rows-button");
 const columnsButton = document.querySelector("#columns-button");
 const submitButton = document.querySelector("#submit-button");
 
+const levelDisplay = document.querySelector("#level-display");
 const pointsDisplay = document.querySelector("#points-display");
 const highScoreDisplay = document.querySelector("#high-score-display");
 
@@ -106,7 +107,8 @@ function checkArea(a){
     columnDisplay.classList.toggle('hidden');
 
     //advance to next round or end the game
-    game.round++
+    game.round++;
+    levelDisplay.innerHTML=(game.round);
     if(game.round<10){
         newRound();
     } else {

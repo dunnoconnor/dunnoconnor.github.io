@@ -29,7 +29,7 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:flex-start;
+    justify-content:center;
     align-items: center;
 }
 
@@ -44,9 +44,10 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:flex-start;
+    justify-content:center;
     align-items: center;
 }
+
 #corner{
     width: 5vw;
     height: 5vh;
@@ -56,7 +57,8 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:flex-start;
+    justify-content:center;
+    align-items: center;
 }
 
 .box{
@@ -87,13 +89,12 @@ body{
 }
 
 button, input {
-    border-radius: 10%;
+    border-radius: 10px;
     text-align: center;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     background-color: white;
     font-size: large;
-    border-radius: 10px;
 }
 
 button:hover, input:hover {
@@ -169,4 +170,23 @@ button:hover, input:hover {
 
 .incorrect {
     color:red;
+}
+#column-labels{
+    width: 65vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#row-labels{
+    width: 5vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
 }
