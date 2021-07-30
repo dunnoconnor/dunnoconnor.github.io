@@ -128,6 +128,7 @@ function newRound(){
     game.rows = (Math.ceil(Math.random()*9));
     game.columns = (Math.ceil(Math.random()*9));
 
+
     //populate garden with garden boxes
     generateBoxes();
 

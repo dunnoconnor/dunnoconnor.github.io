@@ -1,4 +1,6 @@
 body{
+    height: auto;
+    width: 100vw;
     text-align: center;
     margin: auto;
     font-family: 'Roboto', sans-serif;
@@ -20,7 +22,6 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:flex-start;
 }
 
 #row-ruler{
@@ -29,7 +30,6 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:center;
     align-items: center;
 }
 
@@ -66,8 +66,8 @@ body{
     border-style: solid;
     border-color: brown;
     background-color: burlywood;
-    width: 7%;
-    height: auto;
+    height: 6vh;
+    width: 6vh;
     text-align: center;
 }
 
@@ -86,6 +86,7 @@ body{
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content:center;
+    align-items: center;
 }
 
 button, input {
@@ -94,8 +95,12 @@ button, input {
     padding: 10px;
     margin: 5px;
     background-color: white;
-    font-size: large;
 }
+
+#start-button{
+    width: 50%;
+}
+
 
 button:hover, input:hover {
     box-shadow: 2px 2px;
@@ -171,7 +176,8 @@ button:hover, input:hover {
 .incorrect {
     color:red;
 }
-#column-labels{
+
+/* #column-labels{
     width: 65vw;
     height: 5vh;
     display: flex;
@@ -186,7 +192,47 @@ button:hover, input:hover {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
 
-}
+} */
+
+@media only screen and (max-width: 500px) {
+    #game-window{
+        flex-direction: column;
+    }
+
+    .canvas{
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #garden{
+        width: 95vw;
+        height: 45vh;
+    }
+
+    #row-ruler{
+        height: 45vh;
+    }
+    
+    #column-ruler{
+        width: 95vw;
+        height: 5vh;
+        display: flex;
+    }
+    .box{
+        width: 7vw;
+        height: 7vw;
+    }
+    #numbers-menu{
+        width: 100vw;
+        height: 35vh;
+    }
+    .mobile-row{
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+  }

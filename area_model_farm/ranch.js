@@ -100,19 +100,19 @@ function newRound(){
 function generatePastures(){
 
         columnTensLabel.innerHTML= game.columnTens;
-        //columnTensLabel.width = `${game.columnTens*5}px`;
+        columnTensLabel.style.width = `${game.columnTens*5}px`;
         columnTensLabel.style.color = "blue";
 
         columnOnesLabel.innerHTML= game.columnOnes;
-        //columnTensLabel.width = `${game.columnOnes*5}px`;
+        columnTensLabel.style.width = `${game.columnOnes*5}px`;
         columnOnesLabel.style.color = "red";
 
         rowTensLabel.innerHTML= game.rowTens;
-        //rowTensLabel.height = `${game.rowTens*5}px`;
+        rowTensLabel.style.height = `${game.rowTens*5}px`;
         rowTensLabel.style.color = "blue";
 
         rowOnesLabel.innerHTML= game.rowOnes;
-        //rowOnesLabel.height = `${game.rowOnes*5}px`;
+        rowOnesLabel.style.height = `${game.rowOnes*5}px`;
         rowOnesLabel.style.color = "red";
 
         let pastureA = document.createElement('div');
