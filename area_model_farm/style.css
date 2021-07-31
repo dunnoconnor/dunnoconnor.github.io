@@ -16,7 +16,6 @@ body{
 }
 
 .canvas{
-    background-color: lightgreen;
     width: 70vw;
     height: 85vh;
     display: flex;
@@ -63,23 +62,20 @@ body{
 
 .box{
     position: relative;
-    border-style: solid;
-    border-color: brown;
-    background-color: burlywood;
-    height: 5vw;
-    width: 5vw;
+    border-style:dotted;
+    border-color: tan;
+    height: 6vh;
+    width: 6vh;
     text-align: center;
 }
 
 .plant-img{
-    border-radius: 25%;
-    margin: 20%;
-    width: 60%;
+    width: 90%;
     height: auto;
 }
 
 #numbers-menu{
-    background-color: lightgray;
+    background-image: url(./assets/hay.png);;
     width: 30vw;
     height: 85vh;
     display: flex;
@@ -127,30 +123,38 @@ button:hover, input:hover {
     align-items: center;
 }
 
+h1{
+    color: yellow;
+}
+
 #header, #footer {
     width: 100vw;
     height: 20vh;
-    background-color: lightblue;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content:space-around;
     align-items: center;
+    border-style: solid;
+    border-color: white;
 }
 
 #header{
     height: 10vh;
-    background-color: lightblue;
+    background-image: url(./assets/sky.png);
+
 }
 
 #footer {
     color: gray;
     height: 5vh;
-    background-color:burlywood;
+    background-image: url(./assets/dirt3.png);;
 }
 
 #main-menu, #game-window {
-    background-color: lightgreen;
+    background-image: url(./assets/grass.png);
+    border-style: solid;
+    border-color: white;
     width: 100vw;
     height: 85vh;
     display: flex;
@@ -201,9 +205,15 @@ button:hover, input:hover {
 } 
 
 .pasture{
+    border-style: solid;
+    border-color: white;
     color: white;
     text-align: center;
     vertical-align: center;
+}
+
+.pasture-label{
+    color: white;
 }
 
 @media only screen and (max-width: 500px) {

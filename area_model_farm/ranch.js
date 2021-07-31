@@ -47,10 +47,10 @@ const misses = [incorrectF, incorrectG];
 const music = new Audio("./assets/sounds/garden.mp3");
 
 //when the window loads, set music volume and play
-window.onload = function() {
-    music.volume = 0.05;
-    music.play();
-};
+// window.onload = function() {
+//     music.volume = 0.05;
+//     music.play();
+// };
 
 //when the song ends, play again
 music.addEventListener('ended', function() {
@@ -167,9 +167,9 @@ function newRound(){
 
     //generate tens place and ones place for numbers to be multiplied
     game.rowTens = (Math.ceil(Math.random()*5))*10;
-    game.rowOnes = (Math.ceil(Math.random()*8))+1;
+    game.rowOnes = (Math.ceil(Math.random()*6))+3;
     game.columnTens = (Math.ceil(Math.random()*5))*10;
-    game.columnOnes = (Math.ceil(Math.random()*8))+1;
+    game.columnOnes = (Math.ceil(Math.random()*6))+3;
 
     //stores the correct answers to this round's prompts
     game.answers.a = game.rowTens*game.columnTens;
@@ -220,7 +220,6 @@ function generatePastures(){
     columnTensLabel.innerHTML = `<p>${game.columnTens}</p>`;
     columnTensLabel.style.width = `${game.columnTens}vw`;
     columnTensLabel.style.height = `${vw}vw`;
-    columnTensLabel.style.color = "blue";
     row0.appendChild(columnTensLabel);
     
     //label for ones place of column
@@ -230,7 +229,6 @@ function generatePastures(){
     columnOnesLabel.innerHTML = `<p>${game.columnOnes}</p>`;
     columnOnesLabel.style.width = `${game.columnOnes}vw`;
     columnOnesLabel.style.height = `${vw}vw`;
-    columnOnesLabel.style.color = "red";
     row0.appendChild(columnOnesLabel);
 
     //label for tens place of row
@@ -240,7 +238,6 @@ function generatePastures(){
     rowTensLabel.innerHTML = `<p>${game.rowTens}</p>`;
     rowTensLabel.style.width = `${vw}vw`;
     rowTensLabel.style.height = `${game.rowTens}vw`;
-    rowTensLabel.style.color = "blue";
     row1.appendChild(rowTensLabel);
     
     //tens by tens
@@ -250,7 +247,7 @@ function generatePastures(){
     pastureA.innerHTML = "<p>A</p>";
     pastureA.style.width = `${game.columnTens}vw`;
     pastureA.style.height = `${game.rowTens}vw`;
-    pastureA.style.backgroundColor = "blue";
+    pastureA.style.backgroundImage = "url(./assets/grass1.png)";
     row1.appendChild(pastureA);
     
     //row tens by column ones
@@ -260,7 +257,7 @@ function generatePastures(){
     pastureB.innerHTML = "<p>B</p>";
     pastureB.style.width = `${game.columnOnes}vw`;
     pastureB.style.height = `${game.rowTens}vw`;
-    pastureB.style.backgroundColor = "purple";
+    pastureB.style.backgroundImage = "url(./assets/grass2.png)";
     row1.appendChild(pastureB);
     
     //label for ones place of row
@@ -270,7 +267,6 @@ function generatePastures(){
     rowOnesLabel.innerHTML = `<p>${game.rowOnes}</p>`;
     rowOnesLabel.style.width = `${vw}vw`;
     rowOnesLabel.style.height = `${game.rowOnes}vw`;
-    rowOnesLabel.style.color = "red";
     row2.appendChild(rowOnesLabel);
     
     //row ones by column tens
@@ -280,7 +276,7 @@ function generatePastures(){
     pastureC.innerHTML = "<p>C</p>"
     pastureC.style.width = `${game.columnTens}vw`;
     pastureC.style.height = `${game.rowOnes}vw`;
-    pastureC.style.backgroundColor = "purple";
+    pastureC.style.backgroundImage = "url(./assets/grass3.png)";
     row2.appendChild(pastureC);
     
     //ones place by ones place
@@ -290,7 +286,7 @@ function generatePastures(){
     pastureD.innerHTML = "<p>D</p>"
     pastureD.style.width = `${game.columnOnes}vw`;
     pastureD.style.height = `${game.rowOnes}vw`;
-    pastureD.style.backgroundColor = "red";
+    pastureD.style.backgroundImage = "url(./assets/grass4.png)";
     row2.appendChild(pastureD);
     console.log(game);
 }

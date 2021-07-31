@@ -52,11 +52,17 @@ const misses = [incorrectF, incorrectG];
 //declare music const
 const music = new Audio("./assets/sounds/garden.mp3");
 
+//declare array of plant images
+const plants = ["./assets/plant1.png","./assets/plant2.png","./assets/plant3.png","./assets/plant4.png"];
+
+//declare array of dirt images
+const dirts = ["url(./assets/dirt1.png)","url(./assets/dirt2.png)","url(./assets/dirt3.png)"];
+
 //when the window loads, set music volume and play
-window.onload = function() {
-    music.volume = 0.05;
-    music.play();
-};
+// window.onload = function() {
+//     music.volume = 0.05;
+//     music.play();
+// };
 
 //when the song ends, play again
 music.addEventListener('ended', function() {
@@ -169,8 +175,8 @@ function newRound(){
     areaInput.value = "";
 
     //generate new row count and column count between 1 and 9
-    game.rows = (Math.ceil(Math.random()*9));
-    game.columns = (Math.ceil(Math.random()*9));
+    game.rows = (Math.ceil(Math.random()*8))+1;
+    game.columns = (Math.ceil(Math.random()*8))+1;
 
     //populate garden with garden boxes
     generateBoxes();
@@ -189,14 +195,18 @@ function generateBoxes(){
         row.classList.add("row");
         garden.appendChild(row);
 
+        let randDirt = Math.floor(Math.random()*dirts.length);
+        let randPlant = Math.floor(Math.random()*plants.length);
+
         for(let j=0;j<game.columns;j++){
         let newBox = document.createElement('div');
         newBox.classList.add("box");
+        newBox.style.backgroundImage = dirts[randDirt];
         row.appendChild(newBox);
 
         let plantImg = document.createElement('img');
         plantImg.classList.add("plant-img");
-        plantImg.src = "./assets/plant.jpeg"
+        plantImg.src = plants[randPlant];
         newBox.appendChild(plantImg);
         }
     }
