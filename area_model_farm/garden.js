@@ -35,35 +35,24 @@ const levelDisplay = document.querySelector("#level-display");
 const pointsDisplay = document.querySelector("#points-display");
 const highScoreDisplay = document.querySelector("#high-score-display");
 
-//declare positive sound effects
-const correctA = new Audio("./assets/sounds/a_Guitar.wav");
-const correctB = new Audio("./assets/sounds/b_Guitar.wav");
-const correctC = new Audio("./assets/sounds/c_Guitar.wav");
-const correctD = new Audio("./assets/sounds/d_Guitar.wav");
-
-//declare negative sound effects
-const incorrectF = new Audio("./assets/sounds/f_Bass.wav");
-const incorrectG = new Audio("./assets/sounds/g_Bass.wav");
-
-//sort sound effects into arrays
-const hits = [correctA,correctB,correctC,correctD];
-const misses = [incorrectF, incorrectG];
-
-//declare music const
-const music = new Audio("./assets/sounds/garden.mp3");
-
 //declare array of plant images
 const plants = ["./assets/plant1.png","./assets/plant2.png","./assets/plant3.png","./assets/plant4.png"];
 
 //declare array of dirt images
 const dirts = ["url(./assets/dirt1.png)","url(./assets/dirt2.png)","url(./assets/dirt3.png)"];
 
-//when the window loads, set music volume and play
-// window.onload = function() {
-//     music.volume = 0.05;
-//     music.play();
-// };
+//declare sound effects
+const correct = new Audio("./assets/sounds/b_Guitar.wav");
+const incorrect = new Audio("./assets/sounds/g_Bass.wav");
 
+//declare music const
+const music = new Audio("./assets/sounds/garden.mp3");
+
+// when the window loads, set music volume and play
+window.onload = function() {
+    music.volume = 0.05;
+    music.play();
+};
 //when the song ends, play again
 music.addEventListener('ended', function() {
     this.currentTime = 0;
@@ -212,36 +201,22 @@ function generateBoxes(){
     }
 }
 
-//Update points display
+//Update points display and play sound effect
 function points(gain){
     if (gain){
-        playSound(true);
+        correct.play();
         game.points+=10;
         pointsDisplay.classList = ("correct");
         if (game.highScore<game.points){
             game.highScore = game.points;
             highScoreDisplay.innerText = game.highScore;
         }
-        
     } else {
-        playSound(false);
+        incorrect.play();
         game.points-=5;
         pointsDisplay.classList = ("incorrect");
     }
     pointsDisplay.innerHTML = game.points;
-}
-
-//play the relevant sound for correct and incorrect answers
-function playSound(hit){
-    let thisSound, rand;
-    if (hit) {
-        rand = Math.floor(Math.random()*hits.length);
-        thisSound = hits[rand];
-    } else {
-        rand = Math.floor(Math.random()*misses.length);
-        thisSound = misses[rand];
-    }
-    thisSound.play();
 }
 
 //Resolve the end of the game
@@ -252,3 +227,7 @@ function endGame(){
     startButton.classList.toggle('hidden');
     displays.classList.toggle('hidden');
   }
+
+  muteButton.addEventListener("click", function(event){
+    music.muted = !music.muted;
+});

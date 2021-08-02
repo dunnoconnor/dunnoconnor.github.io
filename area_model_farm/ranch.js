@@ -6,6 +6,7 @@ const garden = document.querySelector(".garden");
 const instructions = document.querySelector("#instructions");
 const displays = document.querySelector("#displays");
 const startButton = document.querySelector("#start-button");
+const muteButton = document.querySelector("#mute-button");
 
 //consts to display answers
 const aDiv = document.querySelector("#a-div");
@@ -29,28 +30,18 @@ const levelDisplay = document.querySelector("#level-display");
 const pointsDisplay = document.querySelector("#points-display");
 const highScoreDisplay = document.querySelector("#high-score-display");
 
-//declare positive sound effects
-const correctA = new Audio("./assets/sounds/a_Guitar.wav");
-const correctB = new Audio("./assets/sounds/b_Guitar.wav");
-const correctC = new Audio("./assets/sounds/c_Guitar.wav");
-const correctD = new Audio("./assets/sounds/d_Guitar.wav");
-
-//declare negative sound effects
-const incorrectF = new Audio("./assets/sounds/f_Bass.wav");
-const incorrectG = new Audio("./assets/sounds/g_Bass.wav");
-
-//sort sound effects into arrays
-const hits = [correctA,correctB,correctC,correctD];
-const misses = [incorrectF, incorrectG];
+//declare sound effects
+const correct = new Audio("./assets/sounds/b_Guitar.wav");
+const incorrect = new Audio("./assets/sounds/g_Bass.wav");
 
 //declare music const
 const music = new Audio("./assets/sounds/garden.mp3");
 
-//when the window loads, set music volume and play
-// window.onload = function() {
-//     music.volume = 0.05;
-//     music.play();
-// };
+// when the window loads, set music volume and play
+window.onload = function() {
+    music.volume = 0.05;
+    music.play();
+};
 
 //when the song ends, play again
 music.addEventListener('ended', function() {
@@ -95,6 +86,10 @@ numbersMenu.addEventListener("click", function(event) {
         let targetID = event.target.id;
         let targetInput = document.querySelector(`#${targetID}-input`);
         let targetAnswer = parseInt(targetInput.value);
+        console.log(targetAnswer);
+        console.log(game.answers);
+        console.log(game.answers[targetID]);
+
         let targetDiv = document.querySelector(`#${targetID}-div`);
         targetDiv.classList.toggle('hidden');
 
@@ -111,11 +106,15 @@ numbersMenu.addEventListener("click", function(event) {
     }
 });
 
+muteButton.addEventListener("click", function(event){
+    music.muted = !music.muted;
+});
+
 //update points and display for partial areas
 function partialArea(p,answer){
     let targetDisplay = document.querySelector(`#${p}-display`);
-    targetDisplay.innerHTML = game.answers[`${p}`]
-    if (answer==game.answers[`${p}`]){
+    targetDisplay.innerHTML = game.answers[p]
+    if (answer==game.answers[p]){
         targetDisplay.classList = ('correct');
         points(true);
     } else {
@@ -140,23 +139,6 @@ function checkArea(a){
         endGame();
     }
 }
-
-// function checkArea(a){
-//     if (a==(game.rows*game.columns)){
-//         points(true);
-//     } else {
-//         points(false);
-//     }
-    
-//     //advance to next round or end the game
-//     game.round++;
-//     levelDisplay.innerHTML=(game.round);
-//     if(game.round<10){
-//         newRound();
-//     } else {
-//         endGame();
-//     }
-// }
 
 //Begin a new round
 function newRound(){
@@ -293,10 +275,10 @@ function generatePastures(){
     row2.appendChild(pastureD);
 }
 
-//Update points display
+//Update points display and play sound effect
 function points(gain){
     if (gain){
-        playSound(true);
+        correct.play();
         game.points+=10;
         pointsDisplay.classList = ("correct");
         if (game.highScore<game.points){
@@ -304,24 +286,11 @@ function points(gain){
             highScoreDisplay.innerText = game.highScore;
         }
     } else {
-        playSound(false);
+        incorrect.play();
         game.points-=5;
         pointsDisplay.classList = ("incorrect");
     }
     pointsDisplay.innerHTML = game.points;
-}
-
-//play positive or negative sound effect
-function playSound(hit){
-    let thisSound, rand;
-    if (hit) {
-        rand = Math.floor(Math.random()*hits.length);
-        thisSound = hits[rand];
-    } else {
-        rand = Math.floor(Math.random()*misses.length);
-        thisSound = misses[rand];
-    }
-    thisSound.play();
 }
 
 //Resolve the end of the game
