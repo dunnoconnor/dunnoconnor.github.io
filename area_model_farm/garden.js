@@ -159,7 +159,7 @@ function checkArea(a){
     //advance to next round or end the game
     game.round++;
     levelDisplay.innerHTML=(game.round);
-    if(game.round<10){
+    if(game.round<5){
         newRound();
     } else {
         endGame();
@@ -218,6 +218,11 @@ function points(gain){
         playSound(true);
         game.points+=10;
         pointsDisplay.classList = ("correct");
+        if (game.highScore<game.points){
+            game.highScore = game.points;
+            highScoreDisplay.innerText = game.highScore;
+        }
+        
     } else {
         playSound(false);
         game.points-=5;
@@ -241,11 +246,6 @@ function playSound(hit){
 
 //Resolve the end of the game
 function endGame(){
-    if (game.highScore<game.points){
-        game.highScore = game.points;
-
-    }
-    highScoreDisplay.innerText = game.highScore;
     pointsDisplay.innerHTML = 0;
     pointsDisplay.classList = ("");
     instructions.innerHTML = "Click Start to Play Again";

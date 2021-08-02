@@ -88,7 +88,7 @@ numbersMenu.addEventListener("click", function(event) {
         startButton.classList.toggle('hidden');
         game.points = 0;
         game.round = 1;
-        instructions.innerHTML = "Add the area of the four sections together to get the total area."
+        instructions.innerHTML = "Add the four partial areas together to get the total area."
         newRound();
     } else if (event.target.classList.contains('check-button')) {
         //event propagation for four partial area buttons
@@ -134,7 +134,7 @@ function checkArea(a){
     //advance to next round or end the game
     game.round++;
     levelDisplay.innerHTML=(game.round);
-    if(game.round<10){
+    if(game.round<5){
         newRound();
     } else {
         endGame();
@@ -196,21 +196,24 @@ function newRound(){
 //Populate the ranch with pastures and labels
 function generatePastures(){
     //conditional label sizer for desktop and mobile
-    let vw;
-    if (window.screen.width < 500) {
-        vw = 10;
+    let viewDirection, viewSize=10;
+    if (window.screen.width < window.screen.height) {
+        viewDirection = "vw";
+     } else {
+        viewDirection = "vh"
      }
-     else {
-        vw = 6;
-     }
-    console.log(vw);
+    if (window.screen.width<700){
+        viewSize = 10;
+    } else {
+        viewSize = 5;
+    }
 
     //corner divs to space labels
     let corner = document.createElement('div');
     corner.classList.add("pasture-label");
     corner.id = ("corner");
-    corner.style.width = `${vw}vw`;
-    corner.style.height = `${vw}vw`;
+    corner.style.width = `${viewSize}${viewDirection}`;
+    corner.style.height = `${viewSize}${viewDirection}`;
     row0.appendChild(corner);
 
     //label for tens place of column
@@ -218,8 +221,8 @@ function generatePastures(){
     columnTensLabel.classList.add("pasture-label");
     columnTensLabel.id = ("column-tens-label");
     columnTensLabel.innerHTML = `<p>${game.columnTens}</p>`;
-    columnTensLabel.style.width = `${game.columnTens}vw`;
-    columnTensLabel.style.height = `${vw}vw`;
+    columnTensLabel.style.width = `${game.columnTens}${viewDirection}`;
+    columnTensLabel.style.height = `${viewSize}${viewDirection}`;
     row0.appendChild(columnTensLabel);
     
     //label for ones place of column
@@ -227,8 +230,8 @@ function generatePastures(){
     columnOnesLabel.classList.add("pasture-label");
     columnOnesLabel.id = ("column-ones-label");
     columnOnesLabel.innerHTML = `<p>${game.columnOnes}</p>`;
-    columnOnesLabel.style.width = `${game.columnOnes}vw`;
-    columnOnesLabel.style.height = `${vw}vw`;
+    columnOnesLabel.style.width = `${game.columnOnes}${viewDirection}`;
+    columnOnesLabel.style.height = `${viewSize}${viewDirection}`;
     row0.appendChild(columnOnesLabel);
 
     //label for tens place of row
@@ -236,8 +239,8 @@ function generatePastures(){
     rowTensLabel.classList.add("pasture-label");
     rowTensLabel.id = ("row-tens-label");
     rowTensLabel.innerHTML = `<p>${game.rowTens}</p>`;
-    rowTensLabel.style.width = `${vw}vw`;
-    rowTensLabel.style.height = `${game.rowTens}vw`;
+    rowTensLabel.style.width = `${viewSize}${viewDirection}`;
+    rowTensLabel.style.height = `${game.rowTens}${viewDirection}`;
     row1.appendChild(rowTensLabel);
     
     //tens by tens
@@ -245,8 +248,8 @@ function generatePastures(){
     pastureA.classList.add("pasture");
     pastureA.id = ("pasture-a");
     pastureA.innerHTML = "<p>A</p>";
-    pastureA.style.width = `${game.columnTens}vw`;
-    pastureA.style.height = `${game.rowTens}vw`;
+    pastureA.style.width = `${game.columnTens}${viewDirection}`;
+    pastureA.style.height = `${game.rowTens}${viewDirection}`;
     pastureA.style.backgroundImage = "url(./assets/grass1.png)";
     row1.appendChild(pastureA);
     
@@ -255,8 +258,8 @@ function generatePastures(){
     pastureB.classList.add("pasture");
     pastureB.id = ("pasture-b");
     pastureB.innerHTML = "<p>B</p>";
-    pastureB.style.width = `${game.columnOnes}vw`;
-    pastureB.style.height = `${game.rowTens}vw`;
+    pastureB.style.width = `${game.columnOnes}${viewDirection}`;
+    pastureB.style.height = `${game.rowTens}${viewDirection}`;
     pastureB.style.backgroundImage = "url(./assets/grass2.png)";
     row1.appendChild(pastureB);
     
@@ -265,8 +268,8 @@ function generatePastures(){
     rowOnesLabel.classList.add("pasture-label");
     rowOnesLabel.id = ("row-ones-label");
     rowOnesLabel.innerHTML = `<p>${game.rowOnes}</p>`;
-    rowOnesLabel.style.width = `${vw}vw`;
-    rowOnesLabel.style.height = `${game.rowOnes}vw`;
+    rowOnesLabel.style.width = `${viewSize}${viewDirection}`;
+    rowOnesLabel.style.height = `${game.rowOnes}${viewDirection}`;
     row2.appendChild(rowOnesLabel);
     
     //row ones by column tens
@@ -274,8 +277,8 @@ function generatePastures(){
     pastureC.classList.add("pasture");
     pastureC.id = ("pasture-c");
     pastureC.innerHTML = "<p>C</p>"
-    pastureC.style.width = `${game.columnTens}vw`;
-    pastureC.style.height = `${game.rowOnes}vw`;
+    pastureC.style.width = `${game.columnTens}${viewDirection}`;
+    pastureC.style.height = `${game.rowOnes}${viewDirection}`;
     pastureC.style.backgroundImage = "url(./assets/grass3.png)";
     row2.appendChild(pastureC);
     
@@ -284,11 +287,10 @@ function generatePastures(){
     pastureD.classList.add("pasture");
     pastureD.id = ("pasture-d");
     pastureD.innerHTML = "<p>D</p>"
-    pastureD.style.width = `${game.columnOnes}vw`;
-    pastureD.style.height = `${game.rowOnes}vw`;
+    pastureD.style.width = `${game.columnOnes}${viewDirection}`;
+    pastureD.style.height = `${game.rowOnes}${viewDirection}`;
     pastureD.style.backgroundImage = "url(./assets/grass4.png)";
     row2.appendChild(pastureD);
-    console.log(game);
 }
 
 //Update points display
@@ -297,6 +299,10 @@ function points(gain){
         playSound(true);
         game.points+=10;
         pointsDisplay.classList = ("correct");
+        if (game.highScore<game.points){
+            game.highScore = game.points;
+            highScoreDisplay.innerText = game.highScore;
+        }
     } else {
         playSound(false);
         game.points-=5;
