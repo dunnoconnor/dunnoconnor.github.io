@@ -54,7 +54,7 @@ a:hover{
 
 
 #main, #portfolio {
-    height: 550px;
+    height: 520px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,26 +66,7 @@ a:hover{
     -ms-animation: fadeIn 1s;
 }
 
-#about{
-    width: 90%;
-    min-width: 300px;
-    max-width: 600px;
-    padding: 10px;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.statement{
-    color: #ff4800;
-}
-
-#profile {
-    margin: 50px;
-    width: 250px;
-    height: auto;
-  }
-
-  @keyframes fadeIn {
+@keyframes fadeIn {
     0% {opacity:0;}
     100% {opacity:1;}
   }
@@ -108,6 +89,25 @@ a:hover{
   @-ms-keyframes fadeIn {
     0% {opacity:0;}
     100% {opacity:1;}
+  }
+
+#about{
+    width: 90%;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.statement{
+    color: #ff4800;
+}
+
+#profile {
+    margin: 50px;
+    width: 250px;
+    height: auto;
   }
 
 h1{
