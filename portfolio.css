@@ -1,16 +1,114 @@
 
 body{
-    background-image: url("wallpaper.png");
-    background-repeat: repeat;
-    background-size: cover; 
     text-align: center;
     margin: auto;
     font-family: 'Roboto', sans-serif;
+    color: #404040;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+#header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: #c7c7c7;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 6px;
+    width: 90px;
+    height: 30px;
+    border-style: solid;
+    border-color: #c7c7c7;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #404040;
+}
+
+a:hover{
+    color: #ff4800;
+}
+
+.link:hover, .icon-link:hover{
+    box-shadow: 1px 1px #404040;
+}
+
+
+#main, #portfolio {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s;
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
+}
+
+#about{
+    width: 90%;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#statement{
+    color: #ff4800;
+}
+
+#profile {
+    margin: 50px;
+    width: 250px;
+    height: auto;
+  }
+
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 
 h1{
     margin: 5vw;
-    color: white;
+    color: black
 }
 
 #portfolio {
@@ -18,21 +116,20 @@ h1{
     width: 100vw;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content:space-around;
     align-items: center;
 }
 
 .portfolio-entry {
-    background-color: rgba(244, 244, 244,0.9);
-    border-style:solid;
+    background-color: rgba(250, 250, 250, 0.75);
+    border-bottom:solid;
     border-width: 1px;
-    border-radius: 10px;
+    overflow: hidden;
     margin: 10px;
     padding: 10px;
-    width: 20vw;
-    transition: width 0.1s, height 0.1s, box-shadow 0.1s;
-    height: 30vh;
+    width: 350px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -40,12 +137,63 @@ h1{
     text-align: center;  
 }
 
-.portfolio-entry:hover {
-    box-shadow: 4px 3px;
-    width: 21vw;
-    height: 31vh;
+.entry-image {
+    width: 200px;
+    height:200px;
+    padding: 10px;
+    display: block;
+    overflow: hidden;
+    transition: transform 1s;
+    border-radius: 10%;
 }
 
-a {
-    color: black;    
+.portfolio-entry:hover img {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+  }
+
+.portfolio-entry:hover {
+    box-shadow: 1px 1px #404040;
+}
+
+.card {
+    background-color: rgba(250, 250, 250, 0.75);
+    border-bottom:solid;
+    border-width: 1px;
+    margin: 10px;
+    padding: 5px;
+    width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+    text-align: center; 
+}
+
+#footer{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 6px;
+    width: 60px;
+    height: 60px;
+    border-style: solid;
+    border-color: #c7c7c7;
+    border-width: 2px;
+    border-radius: 50%;
+}
+
+.icon{
+    height: 100%;
+    opacity: 75%;
 }
