@@ -44,13 +44,17 @@ a:hover{
     color: #ff4800;
 }
 
+.inactive{
+    color: #ff4800;
+}
+
 .link:hover, .icon-link:hover{
     box-shadow: 1px 1px #404040;
 }
 
 
 #main, #portfolio {
-    height: 600px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +75,7 @@ a:hover{
     line-height: 24px;
 }
 
-#statement{
+.statement{
     color: #ff4800;
 }
 
