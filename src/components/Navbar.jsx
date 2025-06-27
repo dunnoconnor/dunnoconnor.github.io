@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('Home');
-
+const Navbar = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { name: 'Home', icon: null },
     { name: 'Software Engineer', icon: null },
