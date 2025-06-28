@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import Profile from './components/Profile'
 import SoftwareEngineer from './components/SoftwareEngineer'
+import TechnicalEducator from './components/TechnicalEducator'
 import './App.css'
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       case 'Software Engineer':
         return <SoftwareEngineer />;
       case 'Technical Educator':
-        return <div className="coming-soon">Technical Educator content coming soon...</div>;
+        return <TechnicalEducator />;
       case 'Developer Advocate':
         return <div className="coming-soon">Developer Advocate content coming soon...</div>;
       default:
