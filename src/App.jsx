@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Profile from './components/Profile'
 import SoftwareEngineer from './components/SoftwareEngineer'
 import TechnicalEducator from './components/TechnicalEducator'
+import DeveloperAdvocate from './components/DeveloperAdvocate'
 import './App.css'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       case 'Technical Educator':
         return <TechnicalEducator />;
       case 'Developer Advocate':
-        return <div className="coming-soon">Developer Advocate content coming soon...</div>;
+        return <DeveloperAdvocate />;
       default:
         return <Profile />;
     }
