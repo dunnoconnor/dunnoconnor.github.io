@@ -1,6 +1,6 @@
 import React from 'react';
 import sklearn_logo from '../assets/Scikit_learn_logo_small.png';
-import python_logo from '../assets/python-logo-notext.png';
+import python_logo from '../assets/Python-logo-notext.png';
 import react_logo from '../assets/react.svg';
 import './SoftwareEngineer.css';
 
