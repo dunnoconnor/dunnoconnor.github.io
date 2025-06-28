@@ -121,7 +121,7 @@ html, body {
   max-height: 0;
   transition: max-height 0.3s ease;
   position: fixed;
-  top: 64px;
+  top: 0px;
   left: 0;
   right: 0;
   width: 100vw;
@@ -130,7 +130,7 @@ html, body {
 }
 
 .mobile-menu.open {
-  max-height: 400px;
+  max-height: 300px;
 }
 
 .mobile-tab {
