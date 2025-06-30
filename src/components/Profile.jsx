@@ -1,11 +1,9 @@
 import React from 'react';
 import headshot from '../assets/headshot.jpg';
+import resumePDF from '../assets/MDOC Resume 2025.pdf';
 import './Profile.css';
 
 const Profile = () => {
-  const handleEmailClick = () => {
-    window.location.href = 'mailto:michael.dunn.oconnor@gmail.com';
-  };
 
   const handleGitHubClick = () => {
     window.open('https://github.com/dunnoconnor', '_blank');
@@ -13,6 +11,10 @@ const Profile = () => {
 
   const handleLinkedInClick = () => {
     window.open('https://linkedin.com/in/michael-dunn-o-connor', '_blank');
+  };
+
+  const handleResumeClick = () => {
+    window.open(resumePDF, '_blank');
   };
 
   return (
@@ -50,16 +52,18 @@ const Profile = () => {
           LinkedIn
         </button>
         
-        <button 
-          className="profile-button email-button"
-          onClick={handleEmailClick}
-          aria-label="Send Email"
+
+        <button
+          className="profile-button resume-button"
+          onClick={handleResumeClick}
+          aria-label="View Resume"
         >
           <svg className="button-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M0 3v18h24V3H0zm21.518 2L12 12.713 2.482 5h19.036zM2 19V7.183l10 8.104 10-8.104V19H2z"/>
+            <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.828A2 2 0 0 0 19.414 8L14 2.586A2 2 0 0 0 12.586 2H6zm7 1.414L18.586 9H15a2 2 0 0 1-2-2V3.414zM6 4h6v3a4 4 0 0 0 4 4h3v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4z"/>
           </svg>
-          Email
+          Resume
         </button>
+
       </div>
     </div>
   );

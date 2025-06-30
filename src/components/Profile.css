@@ -90,12 +90,12 @@
 }
 
 /* Email Button */
-.email-button {
+.resume-button {
   background-color: #ea4335;
   color: white;
 }
 
-.email-button:hover {
+.resume-button:hover {
   background-color: #d32f2f;
 }
 
